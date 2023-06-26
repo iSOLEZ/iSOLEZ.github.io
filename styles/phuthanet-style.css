@@ -1,0 +1,23 @@
+body{
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: orange;
+    border: 5px solid black
+}
+
+html{
+    background-color: blue;
+}
+
+img{
+    margin: 0 auto;
+    display: block;
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+    color: blue;
+    text-shadow: 5px 5px 5px black;
+}
