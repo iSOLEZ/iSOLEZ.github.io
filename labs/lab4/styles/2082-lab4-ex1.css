@@ -1,0 +1,60 @@
+.grid-container {
+  display: grid;
+  text-align: center;
+  grid-auto-rows: minmax(100px, auto);
+  font-size: 20px;
+}
+
+.grid-header {
+  grid-column: 1/4;
+  grid-row: 1;
+  background-color: black;
+  color: white;
+  padding-top: 40px;
+}
+
+.grid-hero {
+  grid-column: 1/4;
+  grid-row: 2/6;
+  background-color: cornflowerblue;
+  color: white;
+  padding-top: 90px;
+}
+
+.grid-menu {
+  grid-column: 1;
+  grid-row: 4/9;
+  background-color: red;
+  color: white;
+  padding-top: 240px;
+}
+.grid-main {
+  grid-column: 2/4;
+  grid-row: 4/6;
+  background-color: #202020;
+  color: white;
+  padding-top: 90px;
+}
+
+.grid-banner {
+  grid-column: 2/4;
+  grid-row: 6/8;
+  background-color: rgb(247, 247, 60);
+  color: black;
+  padding-top: 90px;
+}
+
+.grid-image {
+  grid-column: 3;
+  grid-row: 8;
+  background-color: rgb(172, 255, 227);
+  color: black;
+  padding-top: 40px;
+}
+.grid-extra {
+  grid-column: 2;
+  grid-row: 8;
+  background-color: rgb(114, 247, 114);
+  color: black;
+  padding-top: 40px;
+}
