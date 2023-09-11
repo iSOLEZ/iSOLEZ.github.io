@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Students Information</title>
+</head>
+
+<body>
+    <h1>Reading Students Information</h1>
+    <ol id="student-list"></ol>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("students.json")
+                .then(response => response.json())
+                .then(data => {
+                    let studentList = document.getElementById("student-list");
+                    let students = data.wclass;
+
+                    students.forEach((studentData, index) => {
+                        let student = studentData.student;
+                        let studentId = student["@attributes"].id;
+                        let studentName = student.name;
+                        let studentSkills = student.skill;
+
+                        let listItem = document.createElement("li");
+                        listItem.innerHTML = `${studentId} <strong>${studentName}</strong> has skills <em>${studentSkills}</em>`;
+                        studentList.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error!!!", error);
+                });
+        });
+    </script>
+</body>
+
+</html>

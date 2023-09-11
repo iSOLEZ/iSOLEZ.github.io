@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Information</title>
+    <style>
+        .restaurant-name {
+            color: blue;
+            margin: 0;
+        }
+
+        .location {
+            margin: 0;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="restaurant-info"></div>
+
+    <script>
+        function displayRestaurantInfo(data) {
+            const restaurantInfoDiv = document.getElementById('restaurant-info');
+
+            data.results.forEach((restaurant, index) => {
+                const name = restaurant.name;
+                const locationData = restaurant.geometry.location;
+                const latitude = locationData.lat;
+                const longitude = locationData.lng;
+
+                const restaurantElement = document.createElement('p');
+
+                restaurantElement.className = 'restaurant-info';
+
+                restaurantElement.innerHTML = `${index + 1}. <span class="restaurant-name">name = ${name}</span><br><span class="location">location = ${latitude} ${longitude}</span>`;
+
+                restaurantInfoDiv.appendChild(restaurantElement);
+            });
+        }
+
+        function readLocalJSONFile() {
+            fetch("places.json")
+                .then(response => response.json())
+                .then(data => displayRestaurantInfo(data))
+                .catch(error => console.error('Error reading JSON: ', error));
+        }
+
+        window.addEventListener('load', readLocalJSONFile);
+    </script>
+</body>
+
+</html>
